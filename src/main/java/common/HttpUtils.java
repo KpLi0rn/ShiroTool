@@ -63,8 +63,10 @@ public class HttpUtils {
             header = this.sendPostRequest(url,detectCookie);
         }
 
-
-        int index = Integer.parseInt(paramContext.get("Index"));
+        int index = 0;
+        if (paramContext.get("Index") != null){
+            index = Integer.parseInt(paramContext.get("Index"));
+        }
 
         if (header != null){
             setCookie = header.get("Set-Cookie");
